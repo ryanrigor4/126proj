@@ -21,6 +21,8 @@ void leaderBoard::addPlayer(const playerScore &player) {
   names[temp.getName()[0] - 'A' % 26].push_back(&temp);
 }
 
-void leaderBoard::displayLeaderBoard() { scores.inorderTraverse(); }
+void leaderBoard::displayLeaderBoard() { 
+  scores.inorderTraverse();
+}
 
 #endif

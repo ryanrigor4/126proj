@@ -25,9 +25,12 @@ public:
 
 using namespace std;
 
-template <class Type> binaryTree<Type>::binaryTree() { root = nullptr; }
+template <class Type> binaryTree<Type>::binaryTree() { 
+  root = nullptr; 
+}
 
-template <class Type> bool binaryTree<Type>::isEmpty() { return root; }
+template <class Type> bool binaryTree<Type>::isEmpty() { 
+  return root; }
 
 template <class Type> void binaryTree<Type>::insert(const Type &insert) {
   binaryTreeNode<Type> *current;

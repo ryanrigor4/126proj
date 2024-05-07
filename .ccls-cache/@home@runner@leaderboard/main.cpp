@@ -1,37 +1,42 @@
 #include "game.h"
 #include "leaderBoard.h"
+#include <string>
 #include <iostream>
 
+using namespace std;
+
 int main() {
-  std::string input;
+  string input;
   bool end = false;
   leaderBoard board1;
   int score;
-  std::string name;
-  std::cout << "Welcome to the Number Guessing Game!" << std::endl;
+  string name;
+  cout << "Welcome to the Number Guessing Game!" << endl;
   while (end != true) {
-    std::cout << "1 - Play" << std::endl;
-    std::cout << "2 - View Scores" << std::endl;
-    std::cout << "3 - Quit" << std::endl;
-    std::cin >> input;
+    cout << "1 - Play" << endl;
+    cout << "2 - View Scores" << endl;
+    cout << "3 - Quit" << endl;
+    cin >> input;
     if(input == "1") {
       score = game();
-      std::cout << "Your score is: " << score << std::endl;
-      std::cout << "Enter name: ";
-      std::cin >> name;
-      playerScore playerToAdd(name, score);
+      cout << "Your score is: " << score << endl;
+      cout << "Enter name: ";
+      cin >> name;
+      playerScore playerToAdd;
+      playerToAdd.setName (name);
+      playerToAdd.setScore (score);
       board1.addPlayer(playerToAdd);
     }
     else if(input == "2") {
-      std::cout << "Scores" << std::endl;
+      cout << "Scores" << endl;
       board1.displayLeaderBoard();
-      std::cout << std::endl;
+      cout << endl;
     }
     else if(input == "3") {
       end = true;
     }
     else{
-      std::cout << "Invalid input" << std::endl;
+      cout << "Invalid input" << endl;
     }
   }
 }
