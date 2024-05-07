@@ -16,7 +16,8 @@ private:
 };
 
 void leaderBoard::addPlayer(const playerScore &player) {
-  playerScore temp = player;
+  playerScore temp;
+  temp = player;
   scores.insert(&temp);
   names[temp.getName()[0] - 'A' % 26].push_back(&temp);
 }

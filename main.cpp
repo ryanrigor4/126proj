@@ -25,7 +25,6 @@ int main() {
       playerScore playerToAdd;
       playerToAdd.setName (name);
       playerToAdd.setScore (score);
-      cout << playerToAdd.getName() << endl;
       board1.addPlayer(playerToAdd);
     }
     else if(input == "2") {

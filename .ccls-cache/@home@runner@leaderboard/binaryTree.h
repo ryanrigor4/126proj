@@ -30,7 +30,8 @@ template <class Type> binaryTree<Type>::binaryTree() {
 }
 
 template <class Type> bool binaryTree<Type>::isEmpty() { 
-  return root; }
+  return root; 
+}
 
 template <class Type> void binaryTree<Type>::insert(const Type &insert) {
   binaryTreeNode<Type> *current;
