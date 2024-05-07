@@ -15,7 +15,7 @@ public:
   string getName();
   friend ostream &operator<<(ostream &os, const playerScore &player);
   playerScore operator>(const playerScore &other);
-
+  void &operator=(const playerScore &copy);
 private:
   int score;
   string name;
@@ -35,13 +35,12 @@ void playerScore::setScore(const int score) { this->score = score; }
 
 void playerScore::setName(const string name) { this->name = name; }
 
-int playerScore::getScore() { return score; }
+int playerScore::getScore() { return this->score; }
 
-string playerScore::getName() { return name; }
+string playerScore::getName() { return this->name; }
 
-ostream &operator<<(ostream &os, const playerScore &player) {
-  playerScore temp = player;
-  string out = temp.getName() + " " + to_string(temp.getScore());
+ostream &operator<<(ostream &os, playerScore *player) {
+  string out = player->getName() + " " + to_string(player->getScore());
   os << out;
   return os;
 }
@@ -52,6 +51,10 @@ playerScore playerScore::operator>(const playerScore &other) {
   } else {
     return other;
   }
+}
+
+void &operator=(const playerScore& copy) {
+  
 }
 
 #endif

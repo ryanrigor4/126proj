@@ -18,6 +18,7 @@ int game() {
     }
   } while (guess != target);
 
-  std::cout << "Correct! You guessed the number in " << guessCount << " tries.\n";
+  std::cout << "Correct! You guessed the number in " << guessCount
+            << " tries.\n";
   return guessCount;
 }

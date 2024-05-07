@@ -16,7 +16,7 @@ public:
   binaryTree();
   bool isEmpty();
   void insert(const Type &insert);
-  binaryTreeNode<Type> inorderTraverse() const;
+  void inorderTraverse() const;
 };
 
 #endif
@@ -66,13 +66,10 @@ template <class Type> void binaryTree<Type>::inorderTraverse() const {
 }
 
 template <class Type>
-binaryTreeNode binaryTree<Type>::inorder(binaryTreeNode<Type> *node) const {
-
-  node->data = var
-
-      if (node != NULL) {
+void binaryTree<Type>::inorder(binaryTreeNode<Type> *node) const {
+  if (node != NULL) {
     inorder(node->leftLink);
-    cout << var << " ";
+    cout << node->data << " ";
     inorder(node->rightLink);
   }
 }
