@@ -73,7 +73,7 @@ template <class Type>
 void binaryTree<Type>::inorder(binaryTreeNode<Type> *node) const {
   if (node != NULL) {
     inorder(node->leftLink);
-    cout << node->data << " ";
+    cout << *node->data << " ";
     inorder(node->rightLink);
   }
 }
