@@ -1,18 +1,3 @@
 {
-  "files": {
-    "playerScore.h": [
-      {
-        "id": "6551db23-a166-4b17-8d5a-dcebcfa9a9f6",
-        "line": 16,
-        "version": 1617,
-        "index": 343
-      },
-      {
-        "id": "b9959b08-3c85-40a7-b7c5-3723a3bf9d7f",
-        "line": 50,
-        "version": 1623,
-        "index": 911
-      }
-    ]
-  }
+  "files": {}
 }

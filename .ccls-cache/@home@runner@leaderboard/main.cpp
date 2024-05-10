@@ -28,7 +28,6 @@ int main() {
       board1.addPlayer(playerToAdd);
     }
     else if(input == "2") {
-      cout << "Scores" << endl;
       board1.displayLeaderBoard();
       cout << endl;
     }
