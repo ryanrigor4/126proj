@@ -11,15 +11,14 @@ template <class Type> class binaryTree {
 private:
   binaryTreeNode<Type> *root;
   void inorder(binaryTreeNode<Type> *node) const;
-
+  void inverseInorder(binaryTreeNode<Type> *node) const;
 public:
   binaryTree();
   bool isEmpty();
   void insert(const Type &insert);
   void inorderTraverse() const;
+  void inverseInorderTraverse() const;
 };
-
-#endif
 
 #include <iostream>
 
@@ -48,16 +47,13 @@ template <class Type> void binaryTree<Type>::insert(const Type &insert) {
     trail = NULL;
     while (current != NULL) {
       trail = current;
-      if (current->data > insert) {
+      if (current->data->getScore() > insert->getScore()) {
         current = current->leftLink;
-      } else if (current->data < insert) {
+      } else if (current->data->getScore() <= insert->getScore()) {
         current = current->rightLink;
-      } else {
-        cerr << "Duplicate value cannot be inserted to tree" << endl;
-        return;
       }
     }
-    if (trail->data > insert) {
+    if (trail->data->getScore() > insert->getScore()) {
       trail->leftLink = newNode;
     } else {
       trail->rightLink = newNode;
@@ -77,3 +73,5 @@ void binaryTree<Type>::inorder(binaryTreeNode<Type> *node) const {
     inorder(node->rightLink);
   }
 }
+
+#endif

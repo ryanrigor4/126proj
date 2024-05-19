@@ -14,6 +14,8 @@ public:
   void displayLeaderBoard();
   void byScores();
   void byName();
+  int partition(string unsortedNames[], int low, int high);
+  void quickSort(string unsortedNames[], int low, int high);
 private:
   binaryTree<playerScore *> scores;
   list<playerScore *> names[26];
@@ -58,9 +60,42 @@ void leaderBoard::byScores() {
 
 void leaderBoard::byName() {
   for (int i = 0; i < 26; i++) {
+    string unsortedNames[names[i].size()];
+    int index = 0;
     for (auto it = names[i].begin(); it != names[i].end(); it++) {
-      cout << *(*it) << endl;
+      unsortedNames[index] = (*it)->getName();
+      index++;
     }
+    quickSort(unsortedNames, 0, names[i].size() - 1);
+    for (int j = 0; j < names[i].size(); j++) {
+      for (auto it = names[i].begin(); it != names[i].end(); it++) {
+        if ((*it)->getName() == unsortedNames[j]) {
+          cout << *(*it) << endl;
+        }
+      }
+    }
+  }
+}
+
+
+int leaderBoard::partition(string unsortedNames[], int low, int high) {
+  string pivot = unsortedNames[high];
+  int i = low - 1;
+  for (int j = low; j <= high; j++) {
+    if (unsortedNames[j] < pivot) {
+      i++;
+      swap(unsortedNames[i], unsortedNames[j]);
+    }
+  }
+  swap(unsortedNames[i + 1], unsortedNames[high]);
+  return i + 1;
+}
+
+void leaderBoard::quickSort(string unsortedNames[], int low, int high) {
+  if (low < high) {
+    int pivot = partition(unsortedNames, low, high);
+    quickSort(unsortedNames, low, pivot - 1);
+    quickSort(unsortedNames, pivot + 1, high);
   }
 }
 
